@@ -16,6 +16,7 @@ describe('Test for image resource\'s API Routes', function () {
         .end((err, res) => {
           if(err) return done(err);
           expect(res.status).to.equal(200);
+          expect(Array.isArray(res.body)).to.equal(true);
           return done();
         });
       });
