@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "DEBUG='aws:*' mocha",
+    "test": "DEBUG='aws:*' mocha --timeout 10000",
     "start": "DEBUG='aws:*' node server.js"
   },
   "repository": {
@@ -22,6 +22,7 @@
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "http-errors": "^1.6.2",
     "mongoose": "^5.0.1",

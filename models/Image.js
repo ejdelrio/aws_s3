@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 require('debug')('aws: Image Resource');
 
 const imageSchema = new Schema({
-
+  caption: {type: String, required: false}
 });
 
-module.export = mongoose.model('image', imageSchema);
+module.exports = mongoose.model('image', imageSchema);
