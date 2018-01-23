@@ -11,13 +11,13 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 const errorMiddleware = require('./lib/error.js');
-const imageRouter = require('./routes/image-router.js');
+const mediaRouter = require('./routes/media-router.js');
 
 mongoose.connect(process.env.MONGO_URI);
 
 app.use(morgan('DEV'));
 app.use(cors());
-app.use(imageRouter);
+app.use(mediaRouter);
 app.use(errorMiddleware);
 
 app.listen(PORT, function() {
