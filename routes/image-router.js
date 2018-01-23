@@ -5,16 +5,22 @@ const createError = require('http-errors');
 const debug = require('debug')('aws: Image Router');
 const jsonParser = require('body-parser').json();
 
-const Image = require('../models/image.js');
+const Media = require('../models/media.js');
 
-const imageRouter = module.exports = new Router();
+const mediaRouter = module.exports = new Router();
 
-imageRouter.get('/api/image/', function(req, res, next) {
-  debug('GET /api/image');
+mediaRouter.get('/api/:mediaType/', function(req, res, next) {
+  debug('GET /api/:mediaType');
 
-  Image.find({})
-  .then(imageArr => {
-    res.json(imageArr);
-  })
+  let {mediaType} = req.params;
+
+  Media.find({mediaType})
+  .then(mediaArr => res.json(mediaArr))
   .catch(err => next(createError(400, err)));
+});
+
+mediaRouter.post('/api/:mediaType/', jsonParser, function(req, res, next) {
+  debug('POST /api/:mediaType/');
+
+
 });
